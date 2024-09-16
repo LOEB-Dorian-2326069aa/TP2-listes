@@ -119,4 +119,51 @@ public class DLinkedList {
     //C'est l'algorithmes sur liste double chainée qui est le plus rapide car il permet de parcourir la liste dans les deux sens.
 
 
+
+    public boolean equals(Object obj) {
+        // Vérifie si l'objet passé est le même que l'objet actuel
+        if (this == obj) return true;
+
+        // Vérifie si l'objet est null ou si il n'est pas une instance de DLinkedList
+        if (obj == null || !(obj instanceof DLinkedList)) return false;
+
+        // Conversion de l'objet en DLinkedList
+        DLinkedList other = (DLinkedList) obj;
+
+        // Vérifie si les tailles sont différentes
+        if (this.size != other.size) return false;
+
+        // Comparaison des éléments des deux listes
+        DNode currentThis = this.header.getNext();
+        DNode currentOther = other.header.getNext();
+
+        while (currentThis != this.trailer && currentOther != other.trailer) {
+            if (!currentThis.getElement().equals(currentOther.getElement())) {
+                return false;
+            }
+            currentThis = currentThis.getNext();
+            currentOther = currentOther.getNext();
+        }
+
+        //les listes sont égales
+        return true;
+    }
+
+
+        public static void main(String[] args) {
+            DLinkedList list1 = new DLinkedList();
+            DLinkedList list2 = new DLinkedList();
+
+            list1.addLast("A");
+            list1.addLast("B");
+            list1.addLast("C");
+
+            list2.addLast("A");
+            list2.addLast("B");
+            list2.addLast("C");
+
+            System.out.println(list1.equals(list2));  // Affiche true
+        }
 }
+
+
