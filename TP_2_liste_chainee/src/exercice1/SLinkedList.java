@@ -7,7 +7,6 @@ public class SLinkedList {
         head = null; 
     }
     
-    // Ajouter un élément au début de la liste
     public void addFirst(int element) {
         head = new Node(element, head); 
     }
@@ -41,7 +40,6 @@ public class SLinkedList {
     }
     
     
-    //Trouver l'avant dernier noeud d'une liste
     public Node avantDernier() {
 		Node current = head;
 		while (current.getNext().getNext() != null) {
@@ -115,7 +113,6 @@ public class SLinkedList {
        
     }
     
-    // Afficher les éléments de la liste
     public void printList() {
         Node current = head;
         while (current != null) {
